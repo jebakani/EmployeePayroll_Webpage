@@ -1,0 +1,37 @@
+/* UC1-Adding style to the Header fields */
+body
+{
+    margin: 20px;
+    height: 100%;
+}
+.headerContent
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 15px;
+    background-color: #FFFFFF;
+
+}
+.headerContentItem
+{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+}
+.Headertext
+{
+    text-align: left;
+    font: normal normal bold 20px/25px Montserrat ;
+    font-family: "Montserrat" ,sans-serif;
+    text-transform: capitalize;
+    color: #82A70C;;
+}
+.logo-text1
+{
+    color:#42515F; 
+}
+.EmployeeIcon
+{
+    border:0px solid #42515F;
+}
