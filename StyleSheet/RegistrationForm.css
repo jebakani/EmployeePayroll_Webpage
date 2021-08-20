@@ -1,7 +1,7 @@
 /* UC1-Adding style to the Header fields */
 body
 {
-    margin: 20px;
+    margin: 0px;
     height: 100%;
 }
 .headerContent
@@ -9,8 +9,9 @@ body
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 15px;
+    padding: 15px 0;
     background-color: #FFFFFF;
+    align-items: center;
 
 }
 .headerContentItem
@@ -18,11 +19,11 @@ body
     display: flex;
     flex-direction: row;
     width: 80%;
+    align-items: center;
 }
 .Headertext
 {
-    text-align: left;
-    font: normal normal bold 20px/25px Montserrat ;
+    font: normal normal bold 22px/25px Montserrat ;
     font-family: "Montserrat" ,sans-serif;
     text-transform: capitalize;
     color: #82A70C;;
@@ -34,4 +35,56 @@ body
 .EmployeeIcon
 {
     border:0px solid #42515F;
+}
+/* UC2-Adding Name block to form content */
+.FormBody
+{
+    min-height: calc(100%-80px);
+    background-color: #F7F7F7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formContent
+{
+    border-radius: 8px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid #F5F5F5;
+    padding: 44px 60px;
+    width: 65%;
+    margin: 10px;
+}
+.formHeader
+{
+    font:normal normal bold 24px/37px Roboto;
+    padding-bottom: 20px;
+    color:#42515F;
+    text-transform: capitalize;
+}
+.rowContent
+{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.text
+{
+    font-size:  16px ;
+    font-family :Roboto;
+    color: #42515F;;
+}
+label
+{
+    padding: 12px 12px 12px 0px;
+    display: inline-block;
+}
+input
+{
+    width: 100%;
+    padding : 12px;
+    border: 1px solid #BDBDBD;
+    border-radius: 2px;
+    margin-left: 20px;
 }
