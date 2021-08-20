@@ -108,3 +108,6 @@ label
     border-radius: 50px;
     margin-left: 20px;
 }
+.CheckBoxContent>label{
+    padding-right: 20px
+}
