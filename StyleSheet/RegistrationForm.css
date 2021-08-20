@@ -75,16 +75,36 @@ body
     font-family :Roboto;
     color: #42515F;;
 }
+.label
+{
+    min-width: 140px;
+}
 label
 {
     padding: 12px 12px 12px 0px;
-    display: inline-block;
 }
-input
+#Name
 {
     width: 100%;
     padding : 12px;
     border: 1px solid #BDBDBD;
     border-radius: 2px;
+}
+/* UC3-Profile image */
+.ProfileContent
+{
+    display: flex;
+    flex-direction: row;
+}
+.ProfileContent > label 
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.profile
+{
+    width: 40px;
+    border-radius: 50px;
     margin-left: 20px;
 }

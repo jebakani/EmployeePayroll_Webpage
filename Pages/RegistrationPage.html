@@ -2,6 +2,9 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&display=swap" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
         <title>Employee PayRoll Registration</title>
         <link rel="stylesheet" href="../StyleSheet/RegistrationForm.css">
     </head>
@@ -20,9 +23,34 @@
             <form class="formContent">
                 <div class="formHeader">Employee Payroll form</div>
                 <div class="rowContent">
-                    <label class="NameLable text">Name</label>
+                    <label class="label text">Name</label>
                     <input type="text" id="Name" name="Name" placeholder="your name is ..."> 
                 </div>
+
+
+                <div class="rowContent">
+                    <label class="label text" for="profile">Profile Image</label>
+                    <div class="ProfileContent">
+                        <label>
+                            <input type="radio" name="profilePic" id="profilePic1" value="../Assets/profile-images/Ellipse -1.png">
+                            <img src="../Assets/profile-images/Ellipse -1.png" id="pic1" class="profile">
+                        </label>
+                        <label>
+                            <input type="radio" name="profilePic" id="profilePic2" value="../Assets/profile-images/Ellipse -2.png">
+                            <img src="../Assets/profile-images/Ellipse -2.png" id="pic2" class="profile">
+                        </label>
+                        <label>
+                            <input type="radio" name="profilePic" id="profilePic3" value="../Assets/profile-images/Ellipse -3.png">
+                            <img src="../Assets/profile-images/Ellipse -3.png" id="pic3" class="profile">
+                        </label>
+                        <label>
+                            <input type="radio" name="profilePic" id="profilePic4" value="../Assets/profile-images/Ellipse 1.png">
+                            <img src="../Assets/profile-images/Ellipse 1.png" id="pic4" class="profile">
+                        </label>
+                    </div>
+                </div>
+
+
             </form>
         </div>
     </body>
