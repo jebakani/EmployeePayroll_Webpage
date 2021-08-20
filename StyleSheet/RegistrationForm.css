@@ -52,7 +52,7 @@ body
     box-shadow: 0px 3px 6px #00000029;
     border: 1px solid #F5F5F5;
     padding: 44px 60px;
-    width: 65%;
+    width: 50%;
     margin: 10px;
 }
 .formHeader
@@ -66,8 +66,9 @@ body
 {
     display: flex;
     flex-direction: row;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     align-items: center;
+    padding-top: 10px;
 }
 .text
 {
@@ -83,7 +84,7 @@ label
 {
     padding: 12px 12px 12px 0px;
 }
-#Name
+#Name,textarea
 {
     width: 100%;
     padding : 12px;
@@ -109,11 +110,11 @@ label
     margin-left: 20px;
 }
 .CheckBoxContent>label{
-    padding-right: 20px
+    padding-right: 10px
 }
 .salary
 {
-    width: 30%;
+    width: 40%;
 }
 /* UC5- Style for start date  */
 select
@@ -127,4 +128,37 @@ select
     resize: vertical;
     margin-right: 30px;
 }
-
+textarea
+{
+    height: 100px;
+}
+.buttonParent
+{
+    display: felx;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.button
+{
+    font-family: Roboto;
+    font-size: 20px;
+    color: #42515F;
+    background: #E2E2E2 0% 0% no-repeat padding-box;
+    border: 1px solid #969696;
+    border-radius: 5px;
+    min-width: 140px;
+    font-weight: 400;
+    padding:7px 7px;
+}
+.submitButton
+{
+    margin-right: 30px;
+    margin-left: 244px;
+}
+.CancelButton{
+    text-decoration: none;
+    text-align: center;
+    min-width:100px
+}
