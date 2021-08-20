@@ -52,7 +52,7 @@ body
     box-shadow: 0px 3px 6px #00000029;
     border: 1px solid #F5F5F5;
     padding: 44px 60px;
-    width: 50%;
+    width: 65%;
     margin: 10px;
 }
 .formHeader
@@ -134,11 +134,11 @@ textarea
 }
 .buttonParent
 {
-    display: felx;
-    flex-direction: row;
+    display:flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 10px;
+    margin-left: 20%;
 }
 .button
 {
@@ -155,10 +155,59 @@ textarea
 .submitButton
 {
     margin-right: 30px;
-    margin-left: 244px;
 }
 .CancelButton{
     text-decoration: none;
     text-align: center;
-    min-width:100px
+}
+@media screen and (max-width:860px) {
+    .buttonParent
+    {
+        margin-left: 10%;
+    }
+    .formContent
+    {
+        width: 85%;
+        padding:44px 20px;
+    }
+}
+@media screen and (max-width:600px) {
+    .formContent
+    {
+    margin-top: 10px;
+    }
+    .rowContent
+    {
+        flex-direction: column;
+    }
+    .submitButton
+    {
+        justify-content: flex-start;
+        margin: 0;
+    }
+    .ProfileContent
+    {
+        flex-flow: wrap;
+    }
+    .submit-reset
+    {
+        width: 100%;
+        display: flex;
+        flex-grow: 1;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .buttonParent
+    {
+        margin-left: 0;
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+    .label
+    {
+        display: flex;
+        justify-content: center;
+    }
+  
 }
