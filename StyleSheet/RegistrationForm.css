@@ -1,4 +1,8 @@
 /* UC1-Adding style to the Header fields */
+*
+{
+    box-sizing: border-box;
+}
 body
 {
     margin: 0px;
