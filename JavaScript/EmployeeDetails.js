@@ -4,7 +4,16 @@ class EmployeeDetail {
         return this._name;
     }
     set name(name) {
-        this._name = name;
+        let nameRegex=RegExp('^[A-Z]{1}[a-zA-Z\\s]{2,}$');
+         if(nameRegex.test(name.value))
+         {
+             texterror.textContent="";
+             this._name=name;
+         }
+         else
+         {
+             throw 'Name is incorrect';
+         }
     }
     get profilePic() {
         return this._profilePic;
