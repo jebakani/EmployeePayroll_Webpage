@@ -44,14 +44,7 @@ const save=()=>
 const createEmployeePayRoll=()=>
 {
     let employeePayrollData=new EmployeeDetail();
-    try
-    {
-        employeePayrollData.name=getInputValueById('#Name');
-    }
-    catch(e)
-    {
-        setTextValue('.text-error',e);
-    }
+    employeePayrollData.name=getInputValueById('#Name');
     employeePayrollData.profilePic=getSelectedValues('[name=profilePic]').pop();
     employeePayrollData.gender=getSelectedValues('[name=gender]').pop();
     employeePayrollData.department=getSelectedValues('[name=Department]');
@@ -85,13 +78,6 @@ const getSelectedValues=(propertyValue)=>
     });
     return setItem;
 }
-//setting text value in error field
-const setTextValue=(id,value)=>
-{
-   let error=document.querySelector(id);
-   error.textContent=value;
-}
-
 function UpdateAndSaveData(employeePayrollData)
 {
     let employeePayRollList=JSON.parse(localStorage.getItem('EmployeePayRoll'));
@@ -104,4 +90,35 @@ function UpdateAndSaveData(employeePayrollData)
         employeePayRollList=[employeePayrollData];
     }
     localStorage.setItem("EmployeePayRoll",JSON.stringify(employeePayRollList));
+}
+// Reset the value
+Reset=()=>
+{
+    setTextValue('#Name','');
+    UncheckValue('[name=gender]');
+    UncheckValue('[name=profilePic]');
+    UncheckValue('[name=Department]');
+    setValue("#salary",'');
+    setValue("#day",'Day');
+    setValue("#month",'Month');
+    setValue("#year","Year");
+    setValue("#notes",'');
+}
+//setting text value text field
+const setTextValue=(id,value)=>
+{
+   let element=document.querySelector(id);
+   element.textContent=value;
+}
+//Uncheck the value
+const unCheckValue=(propertyValue)=>
+{
+   let allData=document.querySelectorAll(propertyValue);
+   allData.forEach(item=>{item.checked=false});
+}
+//set value other than text field
+const setValue=(id,value)=>
+{
+    let ElementValue=document.querySelector(id);
+    ElementValue.value=value;
 }
