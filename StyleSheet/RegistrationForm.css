@@ -173,6 +173,12 @@ textarea
 {
     background-color:  #82A70C;
 }
+error-output
+{
+    font-size: 16px;
+    font-weight: bold;
+    color: red;
+}
 @media screen and (max-width:960px) {
     .buttonParent
     {

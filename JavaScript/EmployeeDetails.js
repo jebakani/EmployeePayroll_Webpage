@@ -5,9 +5,8 @@ class EmployeeDetail {
     }
     set name(name) {
         let nameRegex=RegExp('^[A-Z]{1}[a-zA-Z\\s]{2,}$');
-         if(nameRegex.test(name.value))
+         if(nameRegex.test(name))
          {
-             texterror.textContent="";
              this._name=name;
          }
          else
