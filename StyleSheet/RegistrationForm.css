@@ -56,8 +56,8 @@ body
     box-shadow: 0px 3px 6px #00000029;
     border: 1px solid #F5F5F5;
     padding: 44px 60px;
-    width: 55%;
-    margin: 10px;
+    width: 65%;
+    margin: 15px 0;
 }
 .formHeader
 {
@@ -142,7 +142,7 @@ textarea
     justify-content: space-between;
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-left: 20%;
+    /* margin-left: 30%; */
 }
 .button
 {
@@ -159,6 +159,7 @@ textarea
 .submitButton
 {
     margin-right: 30px;
+    margin-left: 1px;
 }
 .CancelButton{
     text-decoration: none;
@@ -172,7 +173,7 @@ textarea
 {
     background-color:  #82A70C;
 }
-@media screen and (max-width:1060px) {
+@media screen and (max-width:960px) {
     .buttonParent
     {
         margin-left: 10%;
@@ -183,10 +184,10 @@ textarea
         padding:44px 20px;
     }
 }
-@media screen and (max-width:700px) {
+@media screen and (max-width:600px) {
     .formContent
     {
-    margin-top: 10px;
+       margin-top: 10px;
     }
     .rowContent
     {
@@ -200,21 +201,25 @@ textarea
     .ProfileContent
     {
         flex-flow: wrap;
+        justify-content: center;
     }
     .submit-reset
     {
-        width: 100%;
+        width: 60%;
         display: flex;
         flex-grow: 1;
-        flex-direction: row-reverse;
+        flex-direction: column;
         justify-content: space-between;
-        margin-bottom: 20px;
+        margin-bottom: 15px;;
+    }
+    .submitButton
+    {
+        margin-bottom: 10px;
     }
     .buttonParent
     {
-        margin-left: 0;
         flex-direction: column-reverse;
-        align-items: flex-start;
+        align-items: center;
     }
     .label
     {
