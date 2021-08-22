@@ -42,7 +42,17 @@ class EmployeeDetail {
         return this._startDate;
     }
     set startDate(date) {
-            this._startDate = date;
+            let now=new Date();
+            if(date>now)
+            {
+                throw 'start date is future date';
+            }
+            var diff=Math.abs(now.getTime()-date);
+            if(diff/(1000*60*60*24)>30)
+            {
+             throw 'Start Date Beyond 30 Days!';
+            }
+            this._startDate=new Date(date);
     }
     get note() {
         return this._note;
@@ -52,7 +62,7 @@ class EmployeeDetail {
     }
     toString() {
         const option={year:"numeric",month:"long",day:"numeric"};
-        const joinDate=this.startDate?"undefined":this.startDate.toLocalDateString("en-US",option);
-        return 'name:' + this.name+'\tProfile pic:'+this.profilePic+'\tDepartment:'+this.department+'\t salary :' + this.salary + "\t gender:" + this.gender + "\t startDate:" + this.startDate +"\t notes:"+this.note;
+        const joinDate=!this.startDate?"undefined":this.startDate.toLocaleDateString("en-US",option);
+        return 'name:' + this.name+'\nProfile pic:'+this.profilePic+'\nDepartment:'+this.department+'\nsalary :' + this.salary + "\ngender:" + this.gender + "\nstartDate:" + joinDate +"\nnotes:"+this.note;
     }
 }
