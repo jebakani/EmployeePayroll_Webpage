@@ -33,6 +33,7 @@ const save=()=>
 {
     try{
         let employeeData=createEmployeePayRoll();
+        UpdateAndSaveData(employeeData);
     }
     catch(e)
     {
@@ -89,4 +90,18 @@ const setTextValue=(id,value)=>
 {
    let error=document.querySelector(id);
    error.textContent=value;
+}
+
+function UpdateAndSaveData(employeePayrollData)
+{
+    let employeePayRollList=JSON.parse(localStorage.getItem('EmployeePayRoll'));
+    if(employeePayRollList!=null)
+    {
+        employeePayRollList.push(employeePayrollData);
+    }
+    else
+    {
+        employeePayRollList=[employeePayrollData];
+    }
+    localStorage.setItem("EmployeePayRoll",JSON.stringify(employeePayRollList));
 }
