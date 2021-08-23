@@ -14,8 +14,7 @@ const creatInnerHtml=()=>
                 <td><img class="profile" alt="" src="${employeeData._profilePic}"></td>
                 <td>${employeeData._name}</td>
                 <td>${employeeData._gender}</td>
-                <td><div class="department">${employeeData._department[0]}</div>
-                    <div class="department">${employeeData._department[1]}</div></td>
+                <td>${getDeptHtml(employeeData._department)}</td>
                 <td>${employeeData._salary}</td>
                 <td>${employeeData._startDate}</td>
                 <td>
@@ -25,4 +24,13 @@ const creatInnerHtml=()=>
             </tr>
      `;
     document.querySelector('#empTable').innerHTML=innerHtml;
+}
+const getDeptHtml=(deptList)=>
+{
+    let deptHtml='';
+    for(const dept of deptList)
+    {
+        deptHtml=`${deptHtml}<div class="department">${dept}</div>`;
+    }
+    return deptHtml;
 }
