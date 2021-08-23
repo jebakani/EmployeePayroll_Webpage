@@ -40,3 +40,59 @@ body
 {
     border:0px solid #42515F;
 }
+/* Main header content */
+.MainContent
+{
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 80 px);
+    padding:30px 0 10px;
+    background-color: #F7F7F7 ;
+    box-sizing: border-box;    
+    justify-content: center;
+}
+.Header-Content
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+    padding-bottom: 25px;
+}
+.Header-Content>.header-Text
+{
+    font: normal normal bold 28px/25px Roboto;
+    color: #42515F;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+}
+.empCount
+{
+    background-color: #82A70C;
+    color: #FFFFFF;
+    border-radius: 47%;
+    width:26px;
+    font-size: 16px;
+    text-align: center;
+    display:inline-block;
+    margin-left: 10px;
+}
+.addButton
+{
+    display: flex;
+    background-color: #82A70C;
+    font: normal normal normal 22px/29px Roboto;
+    color: #FFFFFF;
+    opacity: 1;
+    padding:5px 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    align-items: center;
+}
+.addButton >img
+{
+    height: 35px;
+}
