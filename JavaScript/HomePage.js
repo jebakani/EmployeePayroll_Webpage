@@ -5,15 +5,10 @@ window.addEventListener('DOMContentLoaded',(event)=>
 
 const creatInnerHtml=()=>
 {
-    const innerHtml= ` <tr>
-                <th></th>
-                <th>Name</th>
-                <th>Gender</th>
-                <th>Department</th> 
-                <th>Salary</th>
-                <th>Start Date</th>
-                <th>Actions</th>
-            </tr>
+    // separating the header from body
+    const headerHtml="<th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th>";
+    // Passing the header in the innerhtml
+    const innerHtml= `${headerHtml} 
             <tr>
                 <td><img class="profile" alt="" src="../Assets/profile-images/Ellipse -1.png"></td>
                 <td>Jebakani Ishwarya</td>
