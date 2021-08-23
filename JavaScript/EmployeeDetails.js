@@ -1,4 +1,12 @@
 class EmployeeDetail {
+    get id()
+    {
+        return this._id;
+    }
+    set id(id)
+    {
+        this._id=id;
+    }
     //getter setter
     get name() {
         return this._name;
