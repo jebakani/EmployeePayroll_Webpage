@@ -7,9 +7,12 @@ const creatInnerHtml=()=>
 {
     // separating the header from body
     const headerHtml="<th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th>";
-    let employeeData=createEmployeePayrollJSON()[0];
+    let employeeDataList=createEmployeePayrollJSON();
+    let innerHtml=`${headerHtml}`;
+    for(const employeeData of employeeDataList)
+    {
     // Passing the header in the innerhtml
-    const innerHtml= `${headerHtml} 
+    innerHtml= `${innerHtml} 
             <tr>
                 <td><img class="profile" alt="" src="${employeeData._profilePic}"></td>
                 <td>${employeeData._name}</td>
@@ -24,6 +27,7 @@ const creatInnerHtml=()=>
             </tr>
      `;
     document.querySelector('#empTable').innerHTML=innerHtml;
+    }
 }
 const getDeptHtml=(deptList)=>
 {

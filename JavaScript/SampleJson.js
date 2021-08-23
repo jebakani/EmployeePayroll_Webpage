@@ -15,12 +15,12 @@ const createEmployeePayrollJSON=()=>
           },
           {
             _name: "mohit kumar test",
-            _gender: "male",
+            _gender: "female",
             _department: [
               "HR"
             ],
-            _salary: "30000",
-            _startDate: "1 Jan 2020",
+            _salary: "45000",
+            _startDate: "1 August 2020",
             _note: "",
             _id: new Date().getTime()+1,
             _profilePic: "../Assets/profile-images/Ellipse 1.png"
