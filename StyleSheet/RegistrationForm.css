@@ -43,7 +43,7 @@ body
 /* UC2-Adding Name block to form content */
 .FormBody
 {
-    min-height: calc(100%-80px);
+    min-height: calc(100% - 80px);
     background-color: #F7F7F7;
     display: flex;
     justify-content: center;
