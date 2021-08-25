@@ -69,7 +69,7 @@ class EmployeeDetail {
             this._note = note;
     }
     toString() {
-        const option={year:"numeric",month:"long",day:"numeric"};
+        const option={year:"numeric",month:"short",day:"numeric"};
         const joinDate=!this.startDate?"undefined":this.startDate.toLocaleDateString("en-US",option);
         return 'name:' + this.name+'\nProfile pic:'+this.profilePic+'\nDepartment:'+this.department+'\nsalary :' + this.salary + "\ngender:" + this.gender + "\nstartDate:" + joinDate +"\nnotes:"+this.note;
     }

@@ -28,7 +28,7 @@ const creatInnerHtml=()=>
                 <td>${employeeData._salary}</td>
                 <td>${employeeData._startDate}</td>
                 <td>
-                    <img  alt="delete" src="../Assets/icons/delete-black-18dp.svg">
+                    <img id=${employeeData._name} onclick="remove(this)" alt="delete" src="../Assets/icons/delete-black-18dp.svg">
                     <img  alt="edit" src="../Assets/icons/create-black-18dp.svg">
                 </td>
             </tr>
@@ -44,4 +44,15 @@ const getDeptHtml=(deptList)=>
         deptHtml=`${deptHtml}<div class="department">${dept}</div>`;
     }
     return deptHtml;
+}
+// deleting the data from local storage
+const remove=(node)=>
+{
+    let employeeDetail=employeeDataList.find(data=>data._name == node.id);
+    if(!employeeDetail) return;
+    let index=employeeDataList.map(x=>x._name).indexOf(employeeDetail._name);
+    employeeDataList.splice(index,1);
+    localStorage.setItem('EmployeePayRoll',JSON.stringify(employeeDataList));
+    document.querySelector('.empCount').textContent=employeeDataList.length;
+    creatInnerHtml();
 }
