@@ -79,12 +79,12 @@
                     <!-- creating salary field as range-->
                     <label class="label text "for="salary">Salary</label>
                     <input type="range" id="salary" class="salary" name="salary" min="30000" max="50000" step="100" value="40000" >
-                    <output class="salary-output text" for="salary">40000</output>
+                    <output class="salary-output text" id="salary-output" for="salary">40000</output>
                 </div>
                 <div class="rowContent">
                     <!-- creating salary field as range-->
                     <label class="label text "for="salary">Start Date</label>
-                    <div class="DateContent">
+                    <div class="DateContent" id="date">
                         <select id="day" name="day">
                             <option>Day</option>
                             <option value="1">1</option>
@@ -145,6 +145,7 @@
                             <option value="2022">2022</option>
                         </select>
                     </div>
+                    <error-output  class="error-Date" for="date"></error-output >
                 </div>
                 <div class="rowContent">
                     <label class="label text">Notes</label>
@@ -161,5 +162,7 @@
         </div>
         <script src="../JavaScript/EmployeeDetails.js"></script>
         <script src="../JavaScript/EmployeePayRoll.js"></script>
+       <script src="../JavaScript/siteProperties.js"></script>
+       <script src="../JavaScript/utility.js"></script>
     </body>
 </html>

@@ -29,7 +29,7 @@ const creatInnerHtml=()=>
                 <td>${employeeData._startDate}</td>
                 <td>
                     <img id=${employeeData._name} onclick="remove(this)" alt="delete" src="../Assets/icons/delete-black-18dp.svg">
-                    <img  alt="edit" src="../Assets/icons/create-black-18dp.svg">
+                    <img id=${employeeData._name} onclick="edit(this)" alt="edit" src="../Assets/icons/create-black-18dp.svg">
                 </td>
             </tr>
      `;
@@ -55,4 +55,11 @@ const remove=(node)=>
     localStorage.setItem('EmployeePayRoll',JSON.stringify(employeeDataList));
     document.querySelector('.empCount').textContent=employeeDataList.length;
     creatInnerHtml();
+}
+const edit=(node)=>
+{
+    let employeeDetail=employeeDataList.find(data=>data._name == node.id);
+    if(!employeeDetail) return;
+    localStorage.setItem('editEmp',JSON.stringify(employeeDetail));
+    window.location.replace(siteProperties.register_Page);
 }
