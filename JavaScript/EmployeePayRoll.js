@@ -43,12 +43,12 @@ const checkForUpdate = () => {
     setForm();
 }
 // save the data
-const save = () => {
+const save = (event) => {
     event.preventDefault();
     event.stopPropagation();
     try {
         setEmployeePayRollObject();
-        creteAndUpdateStorage();
+        createAndUpdateStorage();
         Reset();
         window.location.replace(siteProperties.home_Page);
     }
@@ -68,7 +68,7 @@ const setEmployeePayRollObject=()=>
     let date = getInputValueById('#day') + " " + getInputValueById('#month') + " " + getInputValueById('#year');
     employeePayRollObj._startDate = new Date(Date.parse(date));
 }
-const creteAndUpdateStorage=()=>
+const createAndUpdateStorage=()=>
 {
     let employeeDataList=JSON.parse(localStorage.getItem('EmployeePayRoll'));
     if(employeeDataList)
@@ -106,18 +106,7 @@ const createEmployeePayRollData=(id)=>
     setEmployeePayRoll(employeePayrollData);
     return employeePayrollData;
 }
-//method to set the value to employee payRoll object
-const setEmployeePayRoll = (employeePayrollData) => {
-    
-    employeePayrollData.name = employeePayRollObj._name;
-    employeePayrollData.profilePic = employeePayRollObj._profilePic;
-    employeePayrollData.gender = employeePayRollObj._gender;
-    employeePayrollData.department =employeePayRollObj._department;
-    employeePayrollData.salary = employeePayRollObj._salary;
-    employeePayrollData.note = employeePayRollObj._note ;
-    employeePayrollData.startDate = employeePayRollObj._startDate;
-    alert(employeePayrollData.toString());
-}
+
 // geting the value when id is passed
 const getInputValueById = (id) => {
     let value = document.querySelector(id).value;
@@ -138,16 +127,7 @@ const getSelectedValues = (propertyValue) => {
     });
     return setItem;
 }
-function UpdateAndSaveData(employeePayrollData) {
-    let employeePayRollList = JSON.parse(localStorage.getItem('EmployeePayRoll'));
-    if (employeePayRollList != null) {
-        employeePayRollList.push(employeePayrollData);
-    }
-    else {
-        employeePayRollList = [employeePayrollData];
-    }
-    localStorage.setItem("EmployeePayRoll", JSON.stringify(employeePayRollList));
-}
+
 // Reset the value
 const Reset = () => {
     setTextValue('#Name', '');
