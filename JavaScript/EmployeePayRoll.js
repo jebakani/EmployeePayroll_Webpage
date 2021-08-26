@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
         else {
             try {
-                (new EmployeeDetail()).name = name.value;
+                checkName(name);
                 texterror.textContent = "";
             }
             catch (e) {
@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     date.addEventListener("input", function () {
         let startdate = getInputValueById('#day') + " " + getInputValueById('#month') + " " + getInputValueById('#year');
         try {
-            new EmployeeDetail().startDate = new Date(Date.parse(startdate));
+            checkStartDate(new Date(Date.parse(startdate)));
             setTextValue(".error-Date", "");
         } catch (e) {
             setTextValue(".error-Date", e);
@@ -59,6 +59,7 @@ const save = (event) => {
 
 const setEmployeePayRollObject=()=>
 {
+    if(!isUpdate) employeePayRollObj.id=createNewEmpId();
     employeePayRollObj._name = getInputValueById('#Name');
     employeePayRollObj._profilePic = getSelectedValues('[name=profilePic]').pop();
     employeePayRollObj._gender = getSelectedValues('[name=gender]').pop();
@@ -66,27 +67,27 @@ const setEmployeePayRollObject=()=>
     employeePayRollObj._salary = getInputValueById('#salary');
     employeePayRollObj._note = getInputValueById('#notes');
     let date = getInputValueById('#day') + " " + getInputValueById('#month') + " " + getInputValueById('#year');
-    employeePayRollObj._startDate = new Date(Date.parse(date));
+    employeePayRollObj._startDate = stringifyDate( new Date(Date.parse(date)));
 }
 const createAndUpdateStorage=()=>
 {
     let employeeDataList=JSON.parse(localStorage.getItem('EmployeePayRoll'));
     if(employeeDataList)
     {
-        let empData=employeeDataList.find(x=>x._id==employeePayRollObj._id);
+        let empData=employeeDataList.find(x=>x.id==employeePayRollObj.id);
         if(!empData)
         {
-            employeeDataList.push(createEmployeePayRollData());
+            employeeDataList.push(employeePayRollObj);
         }
         else
         {
-            const index=employeeDataList.map(emp=>emp._id).indexOf(empData._id);
-            employeeDataList.splice(index,1,createEmployeePayRollData(empData._id));
+            const index=employeeDataList.map(emp=>emp.id).indexOf(empData.id);
+            employeeDataList.splice(index,1,employeePayRollObj);
         }
     }
     else
     {
-        employeeDataList=[createEmployeePayRollData()];
+        employeeDataList=[employeePayRollObj];
     }
     localStorage.setItem("EmployeePayRoll",JSON.stringify(employeeDataList));
 }
