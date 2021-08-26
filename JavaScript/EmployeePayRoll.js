@@ -68,6 +68,11 @@ const createOrUpdateEmployeePayroll=()=>
 {
     let posturl=siteProperties.server_url;
     let methodCall="POST";
+    if(isUpdate)
+    {
+        methodCall="PUT";
+        posturl=posturl+employeePayRollObj.id.toString();
+    }
     makePromiseCall(methodCall,posturl,true,employeePayRollObj)
     .then(responseText =>{
         Reset();
