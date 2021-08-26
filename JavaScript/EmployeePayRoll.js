@@ -48,15 +48,34 @@ const save = (event) => {
     event.stopPropagation();
     try {
         setEmployeePayRollObject();
+        if(siteProperties.use_local_Storage.match("true"))
+        {
         createAndUpdateStorage();
         Reset();
         window.location.replace(siteProperties.home_Page);
+        }
+        else 
+        {
+            createOrUpdateEmployeePayroll();
+        }
     }
     catch (e) {
         alert(e);
     }
 }
-
+//method to add data to the server
+const createOrUpdateEmployeePayroll=()=>
+{
+    let posturl=siteProperties.server_url;
+    let methodCall="POST";
+    makePromiseCall(methodCall,posturl,true,employeePayRollObj)
+    .then(responseText =>{
+        Reset();
+        window.location.replace(siteProperties.home_Page);
+    })
+    .catch(error=>{throw error;});
+}
+//method to set the employee object
 const setEmployeePayRollObject=()=>
 {
     if(!isUpdate) employeePayRollObj.id=createNewEmpId();
@@ -69,6 +88,7 @@ const setEmployeePayRollObject=()=>
     let date = getInputValueById('#day') + " " + getInputValueById('#month') + " " + getInputValueById('#year');
     employeePayRollObj._startDate = stringifyDate( new Date(Date.parse(date)));
 }
+//method to update data to the local storage 
 const createAndUpdateStorage=()=>
 {
     let employeeDataList=JSON.parse(localStorage.getItem('EmployeePayRoll'));
