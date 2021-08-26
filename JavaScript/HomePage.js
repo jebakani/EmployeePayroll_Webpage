@@ -79,9 +79,25 @@ const remove=(node)=>
     if(!employeeDetail) return;
     let index=employeeDataList.map(x=>x.id).indexOf(employeeDetail.id);
     employeeDataList.splice(index,1);
+    // check if the storage is local or json server
+    if(siteProperties.use_local_Storage.match("true"))
+    {
     localStorage.setItem('EmployeePayRoll',JSON.stringify(employeeDataList));
     document.querySelector('.empCount').textContent=employeeDataList.length;
     creatInnerHtml();
+    }
+    // if server then execute DELETE method
+    else
+    {
+        const deleteUrl=siteProperties.server_url+employeeDetail.id.toString();
+        makePromiseCall("DELETE",deleteUrl,false)
+        .then(responseText=>{
+            creatInnerHtml();
+        })
+        .catch(error=>{
+            alert(JSON.stringify(error));
+        })
+    }
 }
 const edit=(node)=>
 {
