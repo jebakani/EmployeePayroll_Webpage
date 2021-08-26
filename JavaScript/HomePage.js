@@ -1,15 +1,42 @@
 let employeeDataList;
 window.addEventListener('DOMContentLoaded',(event)=>
 {
-    employeeDataList=getEmployeePayrollDataFromStrorage();
+    //check if the data is from local storage or json server
+    if(siteProperties.use_local_Storage.match("true"))
+    {
+        getEmployeePayrollDataFromStrorage();
+    }
+    else
+      getEmployeePayrollDataFromServer();
+
+});
+//check for the response 
+const processEmployeePayrollDataResponse=()=>
+{
     document.querySelector('.empCount').textContent=employeeDataList.length;
     creatInnerHtml();
     localStorage.removeItem('editEmp');
-
-});
+}
+//method to get data from local storage
 const getEmployeePayrollDataFromStrorage=()=>
 {
-    return localStorage.getItem('EmployeePayRoll')?JSON.parse(localStorage.getItem('EmployeePayRoll')):[];
+    employeeDataList= localStorage.getItem('EmployeePayRoll')?JSON.parse(localStorage.getItem('EmployeePayRoll')):[];
+    processEmployeePayrollDataResponse();
+}
+// method to get the employee payroll details from the json server
+const getEmployeePayrollDataFromServer=()=>
+{
+    makePromiseCall("GET",siteProperties.server_url,true)
+    .then(responseText=>{
+        employeeDataList=JSON.parse(responseText);
+        processEmployeePayrollDataResponse();
+    })
+    .catch(error=>{
+        console.log("GET Error Status:"+JSON.stringify(error));
+        employeeDataList=[];
+        processEmployeePayrollDataResponse();
+    });
+
 }
 const creatInnerHtml=()=>
 {
